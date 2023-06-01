@@ -1,4 +1,4 @@
-package com.speculatingwook.OauthSpringBoot.global.auth.local.dto.response;
+package com.speculatingwook.OauthSpringBoot.global.auth.auth.dto.response;
 
 import java.util.List;
 

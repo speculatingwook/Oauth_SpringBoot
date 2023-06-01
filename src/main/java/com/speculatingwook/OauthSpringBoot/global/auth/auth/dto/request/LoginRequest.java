@@ -1,4 +1,4 @@
-package com.speculatingwook.OauthSpringBoot.global.auth.local.dto.request;
+package com.speculatingwook.OauthSpringBoot.global.auth.auth.dto.request;
 
 import lombok.Data;
 import lombok.Getter;
