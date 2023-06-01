@@ -1,4 +1,4 @@
-package com.speculatingwook.OauthSpringBoot.global.auth.local.model;
+package com.speculatingwook.OauthSpringBoot.global.auth.auth.model;
 
 import lombok.AccessLevel;
 import lombok.Getter;

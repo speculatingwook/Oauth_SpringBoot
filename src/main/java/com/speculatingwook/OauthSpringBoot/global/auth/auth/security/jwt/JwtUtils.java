@@ -1,4 +1,4 @@
-package com.speculatingwook.OauthSpringBoot.global.auth.local.security.jwt;
+package com.speculatingwook.OauthSpringBoot.global.auth.auth.security.jwt;
 
 import com.bezkoder.springjwt.security.services.UserDetailsImpl;
 import io.jsonwebtoken.*;

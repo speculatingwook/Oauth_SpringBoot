@@ -1,15 +1,15 @@
-package com.speculatingwook.OauthSpringBoot.global.auth.local.controller;
+package com.speculatingwook.OauthSpringBoot.global.auth.auth.controller;
 
-import com.speculatingwook.OauthSpringBoot.global.auth.local.dto.request.LoginRequest;
-import com.speculatingwook.OauthSpringBoot.global.auth.local.dto.request.SignupRequest;
-import com.speculatingwook.OauthSpringBoot.global.auth.local.dto.response.JwtResponse;
-import com.speculatingwook.OauthSpringBoot.global.auth.local.model.ERole;
-import com.speculatingwook.OauthSpringBoot.global.auth.local.model.Role;
-import com.speculatingwook.OauthSpringBoot.global.auth.local.model.User;
-import com.speculatingwook.OauthSpringBoot.global.auth.local.model.UserDetailsImpl;
-import com.speculatingwook.OauthSpringBoot.global.auth.local.repository.RoleRepository;
-import com.speculatingwook.OauthSpringBoot.global.auth.local.repository.UserRepository;
-import com.speculatingwook.OauthSpringBoot.global.auth.local.security.jwt.JwtUtils;
+import com.speculatingwook.OauthSpringBoot.global.auth.auth.dto.request.LoginRequest;
+import com.speculatingwook.OauthSpringBoot.global.auth.auth.dto.request.SignupRequest;
+import com.speculatingwook.OauthSpringBoot.global.auth.auth.dto.response.JwtResponse;
+import com.speculatingwook.OauthSpringBoot.global.auth.auth.model.Role;
+import com.speculatingwook.OauthSpringBoot.global.auth.auth.model.ERole;
+import com.speculatingwook.OauthSpringBoot.global.auth.auth.model.User;
+import com.speculatingwook.OauthSpringBoot.global.auth.auth.model.UserDetailsImpl;
+import com.speculatingwook.OauthSpringBoot.global.auth.auth.repository.RoleRepository;
+import com.speculatingwook.OauthSpringBoot.global.auth.auth.repository.UserRepository;
+import com.speculatingwook.OauthSpringBoot.global.auth.auth.security.jwt.JwtUtils;
 import com.speculatingwook.OauthSpringBoot.global.common.dto.ResponseHeader;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
