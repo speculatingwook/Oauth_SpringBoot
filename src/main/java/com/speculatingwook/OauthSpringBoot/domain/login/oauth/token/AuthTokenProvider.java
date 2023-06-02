@@ -1,6 +1,6 @@
-package com.speculatingwook.OauthSpringBoot.global.auth.oauth.token;
+package com.speculatingwook.OauthSpringBoot.domain.login.oauth.token;
 
-import com.speculatingwook.OauthSpringBoot.global.auth.oauth.exception.TokenValidFailedException;
+import com.speculatingwook.OauthSpringBoot.domain.login.oauth.exception.TokenValidFailedException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.speculatingwook.OauthSpringBoot.global.auth.oauth.exception;
+package com.speculatingwook.OauthSpringBoot.domain.login.oauth.exception;
 
 public class TokenValidFailedException extends RuntimeException {
 

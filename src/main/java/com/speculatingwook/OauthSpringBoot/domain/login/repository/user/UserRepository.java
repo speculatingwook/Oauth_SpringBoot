@@ -1,6 +1,6 @@
-package com.speculatingwook.OauthSpringBoot.global.auth.auth.repository;
+package com.speculatingwook.OauthSpringBoot.domain.login.repository.user;
 
-import com.speculatingwook.OauthSpringBoot.global.auth.auth.model.User;
+import com.speculatingwook.OauthSpringBoot.domain.login.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

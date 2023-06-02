@@ -1,6 +1,5 @@
 package com.speculatingwook.OauthSpringBoot.global.config.security;
 
-import com.speculatingwook.OauthSpringBoot.global.auth.oauth.token.AuthTokenProvider;
 import com.speculatingwook.OauthSpringBoot.global.config.properties.AppProperties;
 import com.speculatingwook.OauthSpringBoot.global.config.properties.CorsProperties;
 import lombok.RequiredArgsConstructor;
