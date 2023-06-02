@@ -1,6 +1,6 @@
 package com.speculatingwook.OauthSpringBoot.global.config.security;
 
-import com.speculatingwook.OauthSpringBoot.global.auth.oauth.token.AuthTokenProvider;
+import com.speculatingwook.OauthSpringBoot.domain.login.oauth.token.AuthTokenProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
