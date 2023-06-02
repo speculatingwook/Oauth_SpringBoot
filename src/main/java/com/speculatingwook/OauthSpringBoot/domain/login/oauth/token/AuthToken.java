@@ -1,4 +1,4 @@
-package com.speculatingwook.OauthSpringBoot.global.auth.oauth.token;
+package com.speculatingwook.OauthSpringBoot.domain.login.oauth.token;
 
 import io.jsonwebtoken.*;
 import lombok.Getter;
