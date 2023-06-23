@@ -87,4 +87,11 @@ public class User {
         return new User(userId,username,  email, profileImageUrl, providerType, roleType, createdAt, modifiedAt );
     }
 
+    public void setUsername(String name) {
+        this.username = name;
+    }
+
+    public void setProfileImageUrl(String imageUrl) {
+        this.profileImageUrl = imageUrl;
+    }
 }
