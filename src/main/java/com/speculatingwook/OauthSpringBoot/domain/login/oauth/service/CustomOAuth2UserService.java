@@ -4,6 +4,7 @@ import com.speculatingwook.OauthSpringBoot.domain.login.entity.user.User;
 import com.speculatingwook.OauthSpringBoot.domain.login.oauth.entity.ProviderType;
 import com.speculatingwook.OauthSpringBoot.domain.login.oauth.entity.RoleType;
 import com.speculatingwook.OauthSpringBoot.domain.login.oauth.entity.UserPrincipal;
+import com.speculatingwook.OauthSpringBoot.domain.login.oauth.exception.OAuthProviderMissMatchException;
 import com.speculatingwook.OauthSpringBoot.domain.login.oauth.info.OAuth2UserInfo;
 import com.speculatingwook.OauthSpringBoot.domain.login.oauth.info.OAuth2UserInfoFactory;
 import com.speculatingwook.OauthSpringBoot.domain.login.repository.user.UserRepository;
