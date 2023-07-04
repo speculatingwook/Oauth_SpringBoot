@@ -5,6 +5,7 @@ import com.speculatingwook.OauthSpringBoot.domain.login.oauth.repository.OAuth2A
 import com.speculatingwook.OauthSpringBoot.domain.login.oauth.token.AuthTokenProvider;
 import com.speculatingwook.OauthSpringBoot.global.config.properties.AppProperties;
 import com.speculatingwook.OauthSpringBoot.global.config.properties.CorsProperties;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,8 +22,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 
 @Configuration
-@RequiredArgsConstructor
 @EnableWebSecurity
+@AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final CorsProperties corsProperties;
     private final AppProperties appProperties;
