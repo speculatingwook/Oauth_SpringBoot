@@ -13,7 +13,6 @@ import com.speculatingwook.OauthSpringBoot.domain.login.repository.user.UserRefr
 import com.speculatingwook.OauthSpringBoot.global.config.properties.AppProperties;
 import com.speculatingwook.OauthSpringBoot.global.config.properties.CorsProperties;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
