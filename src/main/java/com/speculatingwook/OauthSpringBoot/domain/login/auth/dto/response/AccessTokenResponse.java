@@ -1,4 +1,4 @@
-package com.speculatingwook.OauthSpringBoot.domain.login.dto.response;
+package com.speculatingwook.OauthSpringBoot.domain.login.auth.dto.response;
 
 import com.speculatingwook.OauthSpringBoot.global.common.dto.ResponseHeader;
 

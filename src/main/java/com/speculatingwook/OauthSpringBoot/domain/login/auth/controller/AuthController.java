@@ -1,7 +1,7 @@
 package com.speculatingwook.OauthSpringBoot.domain.login.auth.controller;
 
-import com.speculatingwook.OauthSpringBoot.domain.login.dto.request.LoginRequest;
-import com.speculatingwook.OauthSpringBoot.domain.login.dto.response.AccessTokenResponse;
+import com.speculatingwook.OauthSpringBoot.domain.login.auth.dto.request.LoginRequest;
+import com.speculatingwook.OauthSpringBoot.domain.login.auth.dto.response.AccessTokenResponse;
 import com.speculatingwook.OauthSpringBoot.domain.login.auth.entity.UserRefreshToken;
 import com.speculatingwook.OauthSpringBoot.domain.login.auth.entity.RoleType;
 import com.speculatingwook.OauthSpringBoot.domain.login.auth.repository.user.UserRefreshTokenRepository;
