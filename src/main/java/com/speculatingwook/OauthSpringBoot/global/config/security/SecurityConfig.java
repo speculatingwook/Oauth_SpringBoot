@@ -1,15 +1,11 @@
 package com.speculatingwook.OauthSpringBoot.global.config.security;
 
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.entity.RoleType;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.exception.RestAuthenticationEntryPoint;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.filter.TokenAuthenticationFilter;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.handler.OAuth2AuthenticationFailureHandler;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.handler.OAuth2AuthenticationSuccessHandler;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.handler.TokenAccessDeniedHandler;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.service.CustomOAuth2UserService;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.token.AuthTokenProvider;
-import com.speculatingwook.OauthSpringBoot.domain.login.repository.user.UserRefreshTokenRepository;
+import com.speculatingwook.OauthSpringBoot.domain.login.auth.entity.RoleType;
+import com.speculatingwook.OauthSpringBoot.domain.login.auth.exception.RestAuthenticationEntryPoint;
+import com.speculatingwook.OauthSpringBoot.domain.login.auth.filter.TokenAuthenticationFilter;
+import com.speculatingwook.OauthSpringBoot.domain.login.auth.handler.TokenAccessDeniedHandler;
+import com.speculatingwook.OauthSpringBoot.domain.login.auth.token.AuthTokenProvider;
+import com.speculatingwook.OauthSpringBoot.domain.login.auth.repository.user.UserRefreshTokenRepository;
 import com.speculatingwook.OauthSpringBoot.global.config.properties.AppProperties;
 import com.speculatingwook.OauthSpringBoot.global.config.properties.CorsProperties;
 import lombok.AllArgsConstructor;
@@ -41,7 +37,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final AuthTokenProvider tokenProvider;
     private final UserRefreshTokenRepository userRefreshTokenRepository;
     private final TokenAccessDeniedHandler tokenAccessDeniedHandler;
-    private final CustomOAuth2UserService oAuth2UserService;
+
+    private static final String[] PERMIT_URL_ARRAY = {
+            /* swagger v2 */
+            "/v2/api-docs",
+            "/swagger-resources",
+            "/swagger-resources/**",
+            "/configuration/ui",
+            "/configuration/security",
+            "/swagger-ui.html",
+            "/webjars/**",
+            /* swagger v3 */
+            "/v3/api-docs/**",
+            "/swagger-ui/**"
+    };
 
     /*
      * UserDetailsService 설정
@@ -69,46 +78,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+                .antMatchers(PERMIT_URL_ARRAY).permitAll()
                 .antMatchers("/api/**").hasAnyAuthority(RoleType.USER.getCode())
                 .antMatchers("/api/**/admin/**").hasAnyAuthority(RoleType.ADMIN.getCode())
-                .anyRequest().authenticated()
-                .and()
-                .oauth2Login()
-                .authorizationEndpoint()
-                .baseUri("/oauth2/authorization")
-                .authorizationRequestRepository(oAuth2AuthorizationRequestBasedOnCookieRepository())
-                .and()
-                .redirectionEndpoint()
-                .baseUri("/*/oauth2/code/*")
-                .and()
-                .userInfoEndpoint()
-                .userService(oAuth2UserService)
-                .and()
-                .successHandler(oAuth2AuthenticationSuccessHandler())
-                .failureHandler(oAuth2AuthenticationFailureHandler());
+                .anyRequest().authenticated();
 
         http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-    }
-
-    /*
-     * Oauth 인증 성공 핸들러
-     * */
-    @Bean
-    public OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler() {
-        return new OAuth2AuthenticationSuccessHandler(
-                tokenProvider,
-                appProperties,
-                userRefreshTokenRepository,
-                oAuth2AuthorizationRequestBasedOnCookieRepository()
-        );
-    }
-
-    /*
-     * Oauth 인증 실패 핸들러
-     * */
-    @Bean
-    public OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler() {
-        return new OAuth2AuthenticationFailureHandler(oAuth2AuthorizationRequestBasedOnCookieRepository());
     }
 
 
@@ -150,14 +125,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public TokenAuthenticationFilter tokenAuthenticationFilter() {
         return new TokenAuthenticationFilter(tokenProvider);
-    }
-
-    /*
-     * 쿠키 기반 인가 Repository
-     * 인가 응답을 연계 하고 검증할 때 사용.
-     * */
-    @Bean
-    public OAuth2AuthorizationRequestBasedOnCookieRepository oAuth2AuthorizationRequestBasedOnCookieRepository() {
-        return new OAuth2AuthorizationRequestBasedOnCookieRepository();
     }
 }
