@@ -14,6 +14,9 @@ import com.speculatingwook.OauthSpringBoot.global.config.properties.AppPropertie
 import com.speculatingwook.OauthSpringBoot.global.utils.CookieUtil;
 import com.speculatingwook.OauthSpringBoot.global.utils.HeaderUtil;
 import io.jsonwebtoken.Claims;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,6 +25,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +33,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Date;
 
+@RestController
+@Api(tags = "AuthController")
 public class AuthController {
     AuthenticationManager authenticationManager;
     AppProperties appProperties;
@@ -39,8 +45,10 @@ public class AuthController {
     private final static long THREE_DAYS_MSEC = 259200000;
     private final static String REFRESH_TOKEN = "refresh_token";
 
+    @ApiOperation("test")
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(
+            @ApiParam(value = "test", required = true)
             HttpServletRequest request,
             HttpServletResponse response,
             @Valid @RequestBody LoginRequest loginRequest) {
