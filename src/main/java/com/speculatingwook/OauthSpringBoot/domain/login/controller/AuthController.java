@@ -14,8 +14,6 @@ import com.speculatingwook.OauthSpringBoot.global.config.properties.AppPropertie
 import com.speculatingwook.OauthSpringBoot.global.utils.CookieUtil;
 import com.speculatingwook.OauthSpringBoot.global.utils.HeaderUtil;
 import io.jsonwebtoken.Claims;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -34,7 +32,6 @@ import javax.validation.Valid;
 import java.util.Date;
 
 @RestController
-@Api(tags = "AuthController")
 public class AuthController {
     AuthenticationManager authenticationManager;
     AppProperties appProperties;
@@ -45,7 +42,6 @@ public class AuthController {
     private final static long THREE_DAYS_MSEC = 259200000;
     private final static String REFRESH_TOKEN = "refresh_token";
 
-    @ApiOperation("test")
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(
             @ApiParam(value = "test", required = true)
