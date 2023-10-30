@@ -1,19 +1,18 @@
 package com.speculatingwook.OauthSpringBoot.global.config.security;
 
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.entity.RoleType;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.exception.RestAuthenticationEntryPoint;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.filter.TokenAuthenticationFilter;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.handler.OAuth2AuthenticationFailureHandler;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.handler.OAuth2AuthenticationSuccessHandler;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.handler.TokenAccessDeniedHandler;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.service.CustomOAuth2UserService;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.service.CustomUserDetailsService;
-import com.speculatingwook.OauthSpringBoot.domain.login.oauth.token.AuthTokenProvider;
-import com.speculatingwook.OauthSpringBoot.domain.login.repository.user.UserRefreshTokenRepository;
 import com.speculatingwook.OauthSpringBoot.global.config.properties.AppProperties;
 import com.speculatingwook.OauthSpringBoot.global.config.properties.CorsProperties;
-import lombok.AllArgsConstructor;
+import com.speculatingwook.OauthSpringBoot.user.oauth.entity.RoleType;
+import com.speculatingwook.OauthSpringBoot.user.oauth.exception.RestAuthenticationEntryPoint;
+import com.speculatingwook.OauthSpringBoot.user.oauth.filter.TokenAuthenticationFilter;
+import com.speculatingwook.OauthSpringBoot.user.oauth.handler.OAuth2AuthenticationFailureHandler;
+import com.speculatingwook.OauthSpringBoot.user.oauth.handler.OAuth2AuthenticationSuccessHandler;
+import com.speculatingwook.OauthSpringBoot.user.oauth.handler.TokenAccessDeniedHandler;
+import com.speculatingwook.OauthSpringBoot.user.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository;
+import com.speculatingwook.OauthSpringBoot.user.oauth.service.CustomOAuth2UserService;
+import com.speculatingwook.OauthSpringBoot.user.oauth.service.CustomUserDetailsService;
+import com.speculatingwook.OauthSpringBoot.user.oauth.token.AuthTokenProvider;
+import com.speculatingwook.OauthSpringBoot.user.repository.UserRefreshTokenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -57,9 +56,10 @@ public class SecurityConfig{
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/swagger-resources/**",
-            "/signin",
+            "/auth",
             "/user/duplicate-id",
-            "/user/signUp"
+            "/user",
+            "/auth/refresh-token"
     };
 
     /*
